@@ -1,0 +1,14 @@
+@* employeeCreate Template File *@
+@(employeeForm: Form[models.employee.EmployeeShort])
+
+@import helper._
+
+@main("Create employee") {
+    <h1>Create Employee</h1>
+    @form(action=routes.EmployeesCtrl.createEmployee()) {
+        @inputText(employeeForm("First name"))
+        @inputText(employeeForm("Last name"))
+        @inputText(employeeForm("Email"))
+        <input type="submit" value="Submit">
+    }
+}

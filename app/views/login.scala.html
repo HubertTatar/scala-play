@@ -1,0 +1,23 @@
+@* login Template File *@
+@(message: String)
+<!doctype html>
+<html>
+    <head>
+        <style>
+        body { padding:20px; }
+        label, input { display:block; margin-top:10px; }
+        </style>
+        <link href="@routes.Assets.at("stylesheets/main.css")" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Login Form</h1>
+        <form method="post" action="@routes.Login.postLogin">
+            <label for="username">username:</label>
+            <input type="text" name="username" id="username">
+            <label for="password">password:</label>
+            <input type="text" name="password" id="password">
+            <input type="submit" value="Submit form">
+        </form>
+        <p>@message</p>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+@(list: Seq[models.employee.Employee])
+ 
+@main("Employee list") {
+    <h1>Employee list</h1>
+    <div class="listTable">
+    <table>
+    	<tr>
+    		<td>employeeId</td>
+    		<td>firstName</td>
+            <td>lastName</td>
+    	</tr>
+    @for(e <- list) {
+        <tr>
+           @* <td><a href="@routes.EmployeesCtrl.byId(t.key)">@t.key</a></td> *@
+           <td><a href="@routes.EmployeesCtrl.byId(e.employeeId)">@e.employeeId</a></td>
+           <td>@e.firstName</td>
+           <td>@e.lastName</td>
+           @*<td>@e.email</td>
+           <td>@e.phoneNumber</td>
+           <td>@e.salary</td>
+           <td>@e.jobId</td>
+           <td>@e.commisionPct</td>
+           <td>@e.managerId</td>
+           <td>@e.departmentId</td>*@
+        </tr> 
+    }
+    </table>
+}

@@ -1,0 +1,10 @@
+@* betterLogin Template File *@
+@(loginForm: Form[LoginRequest])
+
+@import helper._
+
+@form(action=routes.LoginBetter.betterLogin()){
+	@inputText(loginForm("username"))
+	@inputPassword(loginForm("password"))
+	<input type="submit" value="Submit">
+}

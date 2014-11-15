@@ -1,0 +1,29 @@
+@(list: Seq[models.User])
+ 
+@main("Employee list") {
+    <h1>Employee list</h1>
+    
+	<div>
+		<a class="button" href="@routes.UserCtrl.newUser()">Create new User</a>
+	</div>
+    
+    <div class="listTable">
+    <table>
+    	<tr>
+    		<td>id</td>
+    		<td>login</td>
+            <td>password</td>
+            <td>active</td>
+            <td>blocked</td>
+    	</tr>
+    @for(u <- list) {
+        <tr>
+           <td><a href="#">@u.id</a></td>
+           <td>@u.name</td>
+           <td>@u.password</td>
+           <td>@u.blocked</td>
+           <td>@u.active</td>
+        </tr> 
+    }
+    </table>
+}

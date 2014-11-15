@@ -1,0 +1,51 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
+    </head>
+    <body>
+	<div class="menu">
+		<nav>
+			<ul>
+				<li><a href="@routes.Application.index()">Home</a></li>
+				<li><a href="@routes.LoginBetter.getLogin()">Login</a></li>
+				<li><a href="#">Employee</a>
+					<ul>
+						<li><a href="@routes.EmployeesCtrl.employees()">List</a>	</li>
+						<li><a href="@routes.EmployeesCtrl.getCreateEmployee()">Create</a></li> 
+						@*	<ul>
+								<li><a href="@routes.Application.index()">New</a>
+								<li><a href="@routes.Application.index()">Old</a>
+							</ul>
+						</li>*@	
+					</ul>
+				</li>
+				<li>
+				<a href="#">Administration</a>
+					<ul>
+						<li><a href="#">Users</a>
+							<ul>
+								<li><a href="@routes.UserCtrl.users">List</a>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+    </div>
+    
+     <div class="container">
+      <div class="starter-template">
+        <div class="lead">
+            @content
+        </div>
+      </div>
+    </div>
+    </body>
+</html>
