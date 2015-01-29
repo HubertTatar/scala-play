@@ -4,10 +4,10 @@ import play.api.mvc.Controller
 import play.api.mvc.Action
 import play.api.data._
 import play.api.data.Forms._
-import service.UserService
+import user.service.UserService
 import models.LoginRequest
 
-
+/*
 /*
  * TODO user context, adding to ctx when logged and removeing when logout, roles
  */
@@ -35,3 +35,4 @@ object Login extends Controller {
 	
 	def loginForm = Form(mapping("username" -> text, "password" -> text)(LoginRequest.apply)(LoginRequest.unapply))
 }
+*/
