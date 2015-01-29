@@ -7,4 +7,12 @@
 	@inputText(loginForm("username"))
 	@inputPassword(loginForm("password"))
 	<input type="submit" value="Submit">
+	
+	@if(loginForm.hasGlobalErrors) {
+  		<ul>
+  		@for(error <- loginForm.globalErrors) {
+    		<li><a>@error.message</a></li>
+  		}
+  		</ul>
+	}
 }

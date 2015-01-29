@@ -7,8 +7,9 @@ import com.typesafe.slick.driver.oracle.OracleDriver.simple._
 //http://tikokelottlegyenviz.blogspot.com/2013/08/scala-slick-left-join.html
 //http://blog.lunatech.com/2013/08/21/slick-column-definitions
 //http://stackoverflow.com/questions/17840079/slick-scala-not-inserting-any-values
-case class Employee(employeeId: Int, firstName: String, lastName: String, email: String, phoneNumber: Option[String], salary: Option[Double], jobId: Option[String], commisionPct: Option[Double], managerId: Option[Int], departmentId: Option[Int]) {
-}
+//http://stackoverflow.com/questions/19030875/how-can-i-create-a-custom-column-type-with-typesafe-slick-in-scala
+case class Employee(employeeId: Int, firstName: String, lastName: String, email: String, phoneNumber: Option[String], salary: Option[Double], jobId: Option[String], commisionPct: Option[Double], managerId: Option[Int], departmentId: Option[Int])
+case class EmployeeShort(firstName: String, lastName: String, email: String)
 
 class Employees(tag: Tag) extends Table[Employee](tag, "EMPLOYEES") {
 //	implicit val JavaUtilDateMapper =

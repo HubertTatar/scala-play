@@ -1,11 +1,11 @@
 package controllers
 
-import models.User
-import dao.UserDao
+import user.dao.UserDao
 import play.api.mvc.{Controller,Action}
 import play.api.Logger
 import play.api.data._
 import play.api.data.Forms._
+import user.dto.User
 
 object UserCtrl extends Controller {
 	val list: Seq[User] = UserDao.list
@@ -28,5 +28,5 @@ object UserCtrl extends Controller {
 			)
 	}
 	
-	def userForm = Form(mapping("id" -> number, "name" -> nonEmptyText, "password" -> nonEmptyText, "active" -> nonEmptyText, "blocked" -> nonEmptyText)(User.apply)(User.unapply))
+	def userForm = Form(mapping("id" -> longNumber, "name" -> nonEmptyText, "password" -> nonEmptyText, "active" -> nonEmptyText, "blocked" -> nonEmptyText)(User.apply)(User.unapply))
 }
