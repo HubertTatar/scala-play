@@ -22,11 +22,11 @@ object UserCtrl extends Controller {
 		implicit request => userForm.bindFromRequest().fold(
 			formWithErrors => BadRequest(views.html.newUser(formWithErrors)),
 			newUser  => {
-					UserDao.addUser(newUser)
+					Logger.info("Insert " + UserDao.insert(newUser))
 					Ok(views.html.userList(list))
 				}
 			)
 	}
 	
-	def userForm = Form(mapping("id" -> longNumber, "name" -> nonEmptyText, "password" -> nonEmptyText, "active" -> nonEmptyText, "blocked" -> nonEmptyText)(User.apply)(User.unapply))
+	def userForm = Form(mapping("id" -> longNumber, "name" -> nonEmptyText, "password" -> nonEmptyText, "active" -> nonEmptyText, "blocked" -> nonEmptyText, "version" -> longNumber)(User.apply)(User.unapply))
 }
