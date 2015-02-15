@@ -1,14 +1,12 @@
-@(userForm: Form[user.dto.User])
+@(userForm: Form[user.dto.UserData])
 
 @import helper._
 
 @main("Create new user") {
     <h1>Create new user</h1>
-    @form(action=routes.UserCtrl.addNewUser()) {
+    @form(action=user.controller.routes.UserCtrl.addNewUser()) {
         @inputText(userForm("name"))
         @inputText(userForm("password"))
-        @inputText(userForm("active"))
-        @inputText(userForm("blocked"))
         <input type="submit" value="Submit">
     }
 }

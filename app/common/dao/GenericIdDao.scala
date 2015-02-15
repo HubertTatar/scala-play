@@ -5,6 +5,8 @@ import common.table.IdTable
 import play.api.db.DB
 import bootstrap.Global
 import common.DBSession
+import java.sql.SQLException
+import play.api.Logger
 
 trait GenericIdDao[T <: IdTable[A], A] extends DBSession {
 
@@ -12,7 +14,17 @@ trait GenericIdDao[T <: IdTable[A], A] extends DBSession {
 
   def list = tableReference.list
   
-  def insert(row: T#TableElementType) = tableReference.insert(row)
+  def insert(row: T#TableElementType) = {
+    try {
+    	tableReference.insert(row)
+    } catch {
+      case e: SQLException => {
+          Logger.error(e.getMessage)
+          0
+      }
+    }  
+    
+    }
 
   def insertAndGetId(row: T#TableElementType) = (tableReference returning tableReference.map(_.id)) += row
 

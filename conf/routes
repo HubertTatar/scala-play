@@ -3,10 +3,8 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Login.getLogin
-POST    /login                      controllers.Login.postLogin
-GET		/betterlogin				controllers.LoginBetter.getLogin
-POST	/betterlogin				controllers.LoginBetter.betterLogin
+GET		/							authentication.controller.LoginCtrl.getLogin
+POST	/betterlogin				authentication.controller.LoginCtrl.betterLogin
 
 GET     /index                      controllers.Application.index
 
@@ -15,9 +13,9 @@ GET		/employee					controllers.EmployeesCtrl.byId(id: Int)
 GET		/employeeCreate				controllers.EmployeesCtrl.getCreateEmployee
 POST	/employeeCreate				controllers.EmployeesCtrl.createEmployee
 
-GET		/userList					controllers.UserCtrl.users
-GET		/newUser					controllers.UserCtrl.newUser
-POST	/addNewUser					controllers.UserCtrl.addNewUser
+GET		/userList					user.controller.UserCtrl.users
+GET		/newUser					user.controller.UserCtrl.newUser
+POST	/addNewUser					user.controller.UserCtrl.addNewUser
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
